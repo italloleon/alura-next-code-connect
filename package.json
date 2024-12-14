@@ -1,0 +1,18 @@
+{
+  "name": "code-connect",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "json-server": "json-server posts.json -p 3042",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "14.2.20",
+    "react": "^18",
+    "react-dom": "^18",
+    "winston": "^3.17.0"
+  }
+}
