@@ -5,14 +5,25 @@
   "scripts": {
     "dev": "next dev",
     "json-server": "json-server posts.json -p 3042",
-    "build": "next build",
+    "build": "prisma generate && prisma migrate dev && prisma db seed && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:check": "prettier --check .",
+    "lint:fix": "prettier --write ."
   },
   "dependencies": {
+    "@prisma/client": "^6.0.1",
     "next": "14.2.20",
+    "prisma": "^6.0.1",
     "react": "^18",
     "react-dom": "^18",
     "winston": "^3.17.0"
+  },
+  "devDependencies": {
+    "json-server": "^1.0.0-alpha.22",
+    "prettier": "^3.4.1"
+  },
+  "prisma": {
+    "seed": "node prisma/seed.js"
   }
 }
