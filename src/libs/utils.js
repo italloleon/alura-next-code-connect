@@ -38,10 +38,11 @@ export async function getPostsPerPage(page, searchTerm) {
     const posts = await db.post.findMany({
       take: perPage,
       orderBy: {
-        createdAt: "desc",
+        id: "desc",
       },
       include: {
         author: true,
+        comments: true,
       },
       where,
       skip: (page - 1) * perPage,
@@ -70,6 +71,19 @@ export async function getPostBySlug(slug) {
       },
       include: {
         author: true,
+        comments: {
+          include: {
+            author: true,
+            children: {
+              include: {
+                author: true,
+              },
+            },
+          },
+          where: {
+            parentId: null,
+          },
+        },
       },
     });
 
@@ -84,21 +98,4 @@ export async function getPostBySlug(slug) {
   }
 
   redirect("/not-found");
-}
-
-export async function getPostBySlugOld(slug) {
-  const response = await fetch(
-    `http://localhost:3042/posts?slug=${slug}`,
-  ).catch((error) => {
-    logger.error("Erro de rede: " + error.message);
-    return null;
-  });
-
-  const data = await response.json();
-
-  if (data.length === 0) {
-    return {};
-  }
-
-  return data[0];
 }

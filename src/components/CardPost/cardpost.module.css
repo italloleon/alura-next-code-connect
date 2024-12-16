@@ -1,50 +1,89 @@
-.card {
+.cardpost {
+  display: flex;
+  box-sizing: border-box;
+  position: relative;
   width: 486px;
+  max-width: 486px;
+  flex-direction: column;
+  flex-shrink: 0;
   border-radius: 8px;
+  overflow: hidden;
   background: #171d1f;
 }
 
-.header {
-  border-radius: 8px 8px 0px 0px;
-  background: #888;
-  padding: 24px;
+.highlight {
+  width: 100%;
+  max-width: 100%;
 }
 
-.header figure {
-  margin: 0;
+.header {
   position: relative;
+  display: flex;
+  padding: 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 0;
+  gap: 8px;
+  align-self: stretch;
+  border-radius: 8px 8px 0px 0px;
+  background: #888;
+}
+.count {
+  text-align: center;
+  color: #888;
+  margin: 0;
+  font-size: 15px;
+}
+
+.figure {
+  position: relative;
+  margin: 0;
+}
+
+.image {
+  object-fit: cover;
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0px 16px 24px 0px rgba(0, 0, 0, 0.24);
 }
 
 .body {
-  color: #bcbcbc;
-  padding: 16px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  padding: 16px;
 }
 
-.body h2 {
+.title {
+  color: #bcbcbc;
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
   line-height: 150%;
-  margin: 0;
+  margin-block: 0;
 }
 
-.body p {
+.link {
+  color: #81fe88;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+.content {
+  color: #bcbcbc;
   font-size: 15px;
   font-style: normal;
   font-weight: 400;
   line-height: 150%;
-  margin: 0;
-  flex-grow: 1;
 }
 
 .footer {
+  display: flex;
+  justify-content: space-between;
   padding: 16px;
 }
 
-.link {
-  text-decoration: none;
-  cursor: pointer;
+.actions {
+  display: flex;
 }

@@ -19,3 +19,8 @@ body {
 .main-content {
   flex-grow: 1;
 }
+
+::backdrop {
+  background-color: #171d1f;
+  opacity: 0.8;
+}
